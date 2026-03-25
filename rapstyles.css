@@ -94,6 +94,8 @@ body {
     background: var(--gradient-purple);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    text-decoration: none;
+    text-transform: none;
     background-clip: text;
     text-shadow: 0 0 30px rgba(155, 89, 182, 0.5);
 }
@@ -102,6 +104,8 @@ body {
     position: absolute;
     top: 3px;
     left: 3px;
+    text-decoration: none;
+    text-transform: none;
     z-index: 1;
     color: var(--accent-secondary);
     opacity: 0.3;
