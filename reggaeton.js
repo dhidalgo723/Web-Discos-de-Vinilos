@@ -8,11 +8,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const name = trackName.textContent.trim();
             
             card.addEventListener('click', () => {
-                if (name === 'MUERTE') {
+                if (name === 'YHLQMDLG') {
                     window.location.href = 'producto.html';
-                } else if (name === 'VIVIR PARA CONTARLO'){
-                    window.location.href = 'producto.html';
-                } else if (name === 'CURSO BÁSICO DE POESÍA') {
+                } else {
                     window.location.href = 'producto.html';
                 }
             });

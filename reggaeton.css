@@ -8,6 +8,8 @@
     --text-secondary: #b3b3b3;
     --gradient-purple: linear-gradient(135deg, #9b59b6 0%, #e74c3c 100%);
     --gradient-neon: linear-gradient(135deg, #00ff88 0%, #00d4ff 100%);
+    --neon-pink: #ff007f;
+    --neon-blue: #00f3ff;
 }
 
 * {
@@ -22,6 +24,44 @@ body {
     color: var(--text-primary);
     overflow-x: hidden;
     position: relative;
+}
+
+/* Fondo animado de boombox */
+.boombox-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(155, 89, 182, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 50%, rgba(0, 255, 136, 0.1) 0%, transparent 50%);
+    z-index: -2;
+    animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.6; }
+}
+
+/* Graffiti overlay */
+.graffiti-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 2px,
+            rgba(255, 255, 255, 0.03) 2px,
+            rgba(255, 255, 255, 0.03) 4px
+        );
+    z-index: -1;
+    pointer-events: none;
 }
 
 /* Header & Navigation */
@@ -56,8 +96,8 @@ body {
     background: var(--gradient-purple);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-transform: none;
     text-decoration: none;
+    text-transform: none;
     background-clip: text;
     text-shadow: 0 0 30px rgba(155, 89, 182, 0.5);
 }
@@ -66,10 +106,10 @@ body {
     position: absolute;
     top: 3px;
     left: 3px;
+    text-decoration: none;
+    text-transform: none;
     z-index: 1;
     color: var(--accent-secondary);
-    text-transform: none;
-    text-decoration: none;
     opacity: 0.3;
 }
 
@@ -90,6 +130,7 @@ body {
 }
 
 .nav-menu a::before {
+    content: '';
     position: absolute;
     bottom: -5px;
     left: 0;
@@ -121,70 +162,103 @@ body {
     transition: all 0.3s ease;
 }
 
-/* Contenedor Principal */
-.hero-vinyl {
+.reggaeton-hero {
+    height: 100vh;
+    background: var(--dark-bg);
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 60px 10%;
-    background: #000; /* Fondo negro puro */
-    min-height: 400px;
+    justify-content: center;
     overflow: hidden;
+    position: relative;
+    font-family: 'Arial Black', sans-serif;
 }
 
-/* Bloque de Texto */
-.hero-content {
-    flex: 1;
+/* Animación de fondo: Luces de club */
+.glow-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, #300030 0%, transparent 70%);
+    animation: pulse-bg 4s infinite alternate;
+}
+
+/* El Título con vibración de bajo */
+.main-title {
+    font-size: 8rem;
+    color: #fff;
+    text-align: center;
+    line-height: 0.8;
+    animation: shake 0.2s infinite;
     z-index: 2;
 }
 
-.hero-title {
-    font-size: 3.5rem;
-    font-family: 'Serif', Georgia, serif; /* Ajustar a la fuente de tu logo */
-    background: linear-gradient(90deg, #8e44ad, #ff5e62);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 10px;
-    letter-spacing: 2px;
+.neon-text {
+    display: block;
+    text-shadow: 0 0 10px var(--accent-primary), 0 0 20px var(--accent-gold);
+    filter: italic;
 }
 
-.hero-subtitle {
-    color: #e0e0e0;
-    font-size: 1.2rem;
-    line-height: 1.4;
-    margin-bottom: 30px;
-    font-weight: 300;
+.neon-text:nth-child(even) {
+    color: var(--neon-blue);
+    text-shadow: 0 0 10px var(--accent-primary), 0 0 20px var(--gradient-purple);
+    margin-left: 20px;
 }
 
-/* Botón con degradado */
-.hero-button {
-    display: inline-block;
-    padding: 12px 30px;
-    background: linear-gradient(90deg, #512da8, #880e4f);
-    color: white;
-    text-decoration: none;
-    border-radius: 8px;
-    font-weight: bold;
-    font-size: 1rem;
-    transition: transform 0.6s, box-shadow 0.6s ease;
+/* Círculo central que pulsa */
+.bass-circle {
+    border: 5px solid #fff;
+    border-radius: 50%;
+    padding: 40px;
+    margin: 20px auto;
+    width: fit-content;
+    animation: scale-up 0.4s infinite alternate ease-in-out;
 }
 
-.hero-button:hover {
-    transform: scale(1.25);
-    box-shadow: 0 0 20px rgba(136, 14, 79, 0.4);
+.scrolling-text {
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 0.9rem;
 }
 
-.hero-image {
-    grid: 1fr;
-    display: grid;
+/* Ondas de sonido inferiores */
+.sound-wave {
+    display: flex;
+    gap: 5px;
+    height: 50px;
+    align-items: flex-end;
+    justify-content: center;
 }
 
-.hero-image img {
-    max-width: 120%;
-    mask-image: var(--gradient-purple);
-    filter: var(--accent-primary);
+.sound-wave span {
+    width: 8px;
+    background: linear-gradient(to top, var(--neon-blue), var(--neon-pink));
+    animation: wave 0.5s infinite alternate;
 }
 
+/* Animaciones */
+@keyframes shake {
+    0% { transform: translate(0,0); }
+    50% { transform: translate(3px, -2px); }
+    100% { transform: translate(-3px, 2px); }
+}
+
+@keyframes scale-up {
+    from { transform: scale(1); box-shadow: 0 0 0px var(--neon-pink); }
+    to { transform: scale(1.25); box-shadow: 0 0 30px var(--neon-pink); }
+}
+
+@keyframes wave {
+    from { height: 10px; }
+    to { height: 60px; }
+}
+
+@keyframes pulse-bg {
+    from { opacity: 0.4; }
+    to { opacity: 0.8; }
+}
+
+/* Sections */
 .tracks {
     padding: 6rem 3rem;
     max-width: 1400px;
@@ -206,21 +280,36 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    text-align: center;
     font-weight: 600;
 }
 
+/* lo hizo la ia esto */
+.spray-can {
+    width: 50px;
+    height: 50px;
+    background: var(--gradient-neon);
+    border-radius: 10px;
+    position: relative;
+    animation: spray 2s ease-in-out infinite;
+}
+
+@keyframes spray {
+    0%, 100% { transform: rotate(0deg) translateY(0); }
+    50% { transform: rotate(15deg) translateY(-10px); }
+}
+
+/* Tracks Grid */
 .tracks-grid {
     display: grid;
-    grid-template-columns: 3fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
 }
 
 .tracks-grid-2 {
     display: grid;
-    margin-top: 15px;
-    grid-template-columns: 3fr;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
+    margin-top: 15px;
 }
 
 .track-card {
@@ -230,7 +319,6 @@ body {
     overflow: hidden;
     transition: all 0.4s ease;
     cursor: pointer;
-    text-align: center;
 }
 
 .track-card:hover {
@@ -285,7 +373,7 @@ body {
     height: 100%;
     background: rgba(0, 0, 0, 0.4);
     z-index: 1;
-    transition: 0.3s ease;
+    transition: background 0.3s ease;
 }
 
 .track-card:hover .play-overlay::before {
@@ -316,7 +404,50 @@ body {
 .track-info {
     color: var(--text-secondary);
     padding: 0 1.5rem 1.5rem;
-    font-size: 1rem;
+    font-size: 0.9rem;
+}
+
+/* Lyrics Section */
+.lyrics {
+    padding: 8rem 3rem;
+    background: var(--bg-secondary);
+    border-top: 3px solid var(--accent-primary);
+    border-bottom: 3px solid var(--accent-secondary);
+}
+
+.lyrics-container {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.mic-icon {
+    font-size: 4rem;
+    margin-bottom: 2rem;
+    animation: swing 3s ease-in-out infinite;
+}
+
+@keyframes swing {
+    0%, 100% { transform: rotate(-5deg); }
+    50% { transform: rotate(5deg); }
+}
+
+.lyric-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    line-height: 1.6;
+    color: var(--text-primary);
+    font-style: italic;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 4px rgba(155, 89, 182, 0.3);
+}
+
+.lyric-author {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 0.2em;
+    color: var(--accent-secondary);
+    font-weight: 400;
 }
 
 .footer {
@@ -369,21 +500,8 @@ body {
     letter-spacing: 0.1em;
 }
 
-/* para telefono */
+/* Responsive */
 @media (max-width: 768px) {
-    .hero-vinyl {
-        flex-direction: column;
-        text-align: center;
-        padding: 40px 5%;
-    }
-    .hero-image {
-        margin-top: 30px;
-        justify-content: center;
-    }
-    .hero-title {
-        font-size: 2.5rem;
-    }
-
     .header {
         padding: 1rem 1.5rem;
     }
