@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     window.location.href = 'producto.html';
                 } else if (name === 'VIVIR PARA CONTARLO'){
                     window.location.href = 'producto.html';
-                } else if (name === 'CURSO BÁSICO DE POESÍA') {
+                } else {
                     window.location.href = 'producto.html';
                 }
             });

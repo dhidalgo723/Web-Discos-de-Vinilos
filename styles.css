@@ -24,7 +24,6 @@ body {
     min-height: 100vh;
 }
 
-/* Textura de grano */
 .grain {
     position: fixed;
     top: 0;
