@@ -12,6 +12,11 @@
     --neon-blue: #00f3ff;
 }
 
+/* 
+    el z-index hace --> me ayuda a poner por encima o debajo el header
+    -webkit-background-clip: text; compatible con safari
+    -webkit-text-fill-color: transparent; hace el texto transparente */
+
 * {
     margin: 0;
     padding: 0;

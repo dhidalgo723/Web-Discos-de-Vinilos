@@ -9,6 +9,14 @@
     --gradient-neon: linear-gradient(135deg, #00ff88 0%, #00d4ff 100%);
 }
 
+/* 
+    el z-index hace --> me ayuda a poner por encima o debajo el header
+    -webkit-background-clip: text; compatible con safari
+    -webkit-text-fill-color: transparent; hace el texto transparente 
+    el fadeInUp hace --> hace que un elemento aparezca en pantalla desvaneciendose
+    el expandWidth hace que "redimensione" la dimension horizontal
+    */
+
 * {
     margin: 0;
     padding: 0;
