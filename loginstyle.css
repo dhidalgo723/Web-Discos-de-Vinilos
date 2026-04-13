@@ -68,7 +68,7 @@ body {
 .container {
     position: relative;
     min-height: 100vh;
-    display: flex;
+    display: grid;
     align-items: center;
     justify-content: center;
     padding: 2rem;
@@ -152,12 +152,11 @@ body {
 }
 
 .notify-section {
-    display: flex;
+    display: grid;
     gap: 1rem;
     justify-content: center;
     margin-bottom: 3rem;
     flex-wrap: wrap;
-    animation: fadeInUp 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.8s both;
 }
 
 .email-input {
@@ -185,6 +184,7 @@ body {
 }
 
 .notify-btn {
+    margin-top: 10px;
     padding: 1rem 2.5rem;
     background: transparent;
     border: 2px solid var(--accent-secondary);
@@ -220,6 +220,10 @@ body {
     color: var(--bg-dark);
     box-shadow: 0 0 30px rgba(0, 255, 136, 0.5);
     border-color: transparent;
+}
+
+.show-password {
+    cursor: pointer;
 }
 
 .otras-web {
