@@ -29,11 +29,11 @@
             </div>
             
             <div class="notify-section">
-                <form>
+                <form method="post" action="home.html" type="submit">
                     <input type="email" placeholder="tu@email.com" class="email-input">
-                    <input type="password" placeholder="tu contraseña" class="email-input">
-                    <img src="img/show-password.png" alt="Show Password" height="30px" class="show-password">
-                    <button class="notify-btn" type="submit">Iniciar Sesión</button>
+                    <input type="password" placeholder="tu contraseña" class="password-input">
+                    <a onclick="togglePassword()" class="show-password"><img src="img/show-password.png" alt="Show Password" height="30px"></a>
+                    <button class="notify-btn" type="submit" target="home.html" onclick="validate()">Iniciar Sesión</button>
                 </form>
             </div>
             

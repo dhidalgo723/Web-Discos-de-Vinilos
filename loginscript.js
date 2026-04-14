@@ -1,17 +1,34 @@
-const email_input = document.querySelectorAll('.email-input');
-const show_password = document.querySelectorAll('.show-password');
+function togglePassword() {
+    let password_input = document.getElementById('.password-input');
+    let show_password = document.getElementById('.show-password');
 
-show-password.addEventListener('click', function() {
-    // Verificamos el tipo actual del input
-    if (email_input.type === 'password') {
-        // Si está oculto, lo mostramos
-        email_input.type = 'text';
-        // Opcional: podrías cambiar la opacidad para dar feedback visual
-        this.style.filter = 'brightness(1.5) drop-shadow(0 0 5px #bc13fe)';
+    if (password_input.type === 'password') {
+        password_input.type = 'text';
     } else {
-        // Si ya es visible, lo volvemos a ocultar
-        email_input.type = 'password';
-        // Volvemos al estilo original
-        this.style.filter = 'none';
+        password_input.type = 'password';
     }
-});
+};
+
+function validate() {
+    let hasHigh = false;
+    let hasNumber = false;
+    let hasSpecial = false;
+
+    for (let i = 0; i < password_input.value.length; i++) {
+        let char = password_input.value[i];
+        if (char >= 'A' && char <= 'Z') {
+            hasHigh = true;
+        } else if (char >= '0' && char <= '9') {
+            hasNumber = true;
+        } else if (char === 'ñ' || char === '!' || char === '@' || char === '#' || char === '$' || char === '%' || char === '&' || char === '*' || char === '(' || char === ')' || char === '-' || char === '_' || char === '+' || char === '=' || char === '[' || char === ']' || char === '{' || char === '}' || char === '|' || char === '\\' || char === ':' || char === ';' || char === '"' || char === '\'' || char === '<' || char === '>' || char === ',' || char === '.' || char === '?' || char === '/') {
+            hasSpecial = true;
+        }
+    }
+
+    if (hasHigh && hasNumber && hasSpecial) {
+        alert("Password is valid!");
+    } else {
+        alert("Password isn't valid!");
+    }
+
+};
