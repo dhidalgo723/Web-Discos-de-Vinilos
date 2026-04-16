@@ -1,0 +1,1 @@
+const usuario = sessionStorage.getItem('usuario');

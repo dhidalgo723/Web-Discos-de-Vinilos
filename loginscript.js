@@ -2,19 +2,32 @@ document.addEventListener('DOMContentLoaded', () => {
     const loginForm = document.getElementById('loginForm');
     const passwordInput = document.getElementById('passwordInput');
     const validateButton = document.getElementById('validateButton');
+    
+    const emailInput = document.getElementById('emailInput');
+    const removeSesion = document.getElementById('removeSesion');
 
+    loginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        sessionStorage.setItem('usuario', emailInput.value.trim());
+    });
+
+    removeSesion.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        sessionStorage.removeItem('usuario');
+        sessionStorage.clear();
+    });    
 
     function validatePassword(password) {
         let hasUpperCase = false;
         let hasLowerCase = false;
         let hasNumber = false;
-        let hasSpecialChar = false;
-        const specialChars = '!@#$%^&*()_+-=[]{}|\\:;"\'<>,.?/ñÑ';
 
-        if (password.length < 8) {
+        if (password.length < 6 || password.length > 12) {
             return {
                 valid: false,
-                message: 'Debe tener al menos 8 caracteres'
+                message: 'Debe tener entre 6 y 12 caracteres'
             };
         }
 
@@ -28,8 +41,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 hasLowerCase = true;
             } else if (char >= '0' && char <= '9') {
                 hasNumber = true;
-            } else if (specialChars.includes(char)) {
-                hasSpecialChar = true;
             }
         }
 
@@ -50,27 +61,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 message: 'Debe contener al menos un numero'
             };
         }
-        if (!hasSpecialChar) {
-            return {
-                valid: false,
-                message: 'Debe contener al menos un caracter especial'
-            };
-        }
 
         return {
             valid: true,
-            message: '¡Contraseña válida y segura!'
+            message: 'Contraseña válida'
         };
     }
 
     validateButton.addEventListener('click', (e) => {
+        // esto lo que hace es q cancela el comportamiento predeterminado del navegador
+        // basicamente evita que la pagina se recargue
         e.preventDefault();
         
         const password = passwordInput.value.trim();
         
         if (!password) {
-            alert('⚠️ Por favor, ingresa una contraseña primero');
-            passwordInput.focus();
+            alert('Ingresa una contraseña');
             return;
         }
 
@@ -115,6 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         
         setTimeout(() => {
+            alert("Has entrado como, " + sessionStorage.getItem('usuario'));
             window.location.href = 'home.html';
         }, 1000);
     });
