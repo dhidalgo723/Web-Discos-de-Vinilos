@@ -3,17 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KFK - Login </title>
+    <title>KFK - Login</title>
     <link rel="icon" type="image/jpg" href="img/icon.png">
     <link rel="stylesheet" href="loginstyle.css">
-    <!-- el preconnect hace que optimice y ordene el navegador a establecer conexiones anticipadas con servidores externos -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="icon" href="/img/cd.jpg">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
 </head>
 <body>
-    <script defer src="loginscript.js"></script>
     <div class="grain"></div>
     
     <div class="container">
@@ -24,25 +21,26 @@
             </div>
             
             <div class="description">
-                <p>Explora nuestro catalogo de música exclusiva y con alta calidad de sonido.</p>
-                <p class="tagline">Súmergete en nuestro mundo audiolirical</p>
+                <p>Explora nuestro catálogo de música exclusiva y con alta calidad de sonido.</p>
+                <p class="tagline">Sumérgete en nuestro mundo audiolirical</p>
             </div>
             
             <div class="notify-section">
-                <form method="post" action="home.html" type="submit">
-                    <input type="email" placeholder="tu@email.com" class="email-input">
-                    <input type="password" placeholder="tu contraseña" class="password-input">
-                    <a onclick="togglePassword()" class="show-password"><img src="img/show-password.png" alt="Show Password" height="30px"></a>
-                    <button class="notify-btn" type="submit" target="home.html" onclick="validate()">Iniciar Sesión</button>
+                <form id="loginForm">
+                    <input type="email" id="emailInput" placeholder="tu@email.com" class="email-input" required>
+                    <input type="password" id="passwordInput" placeholder="tu contraseña" class="password-input" required>
+                    
+                    <button class="notify-btn" id="validateButton" type="button">Validar Contraseña</button>
+                    <button class="notify-btn" type="submit">Iniciar Sesión</button>
                 </form>
             </div>
             
             <div class="otras-web">
-                <a href="rap.html" class="otras-web">Rap</a>
+                <a href="rap.html">Rap</a>
                 <span class="separator">•</span>
-                <a href="home.html" class="otras-web">Home</a>
+                <a href="home.html">Home</a>
                 <span class="separator">•</span>
-                <a href="favs.html" class="otras-web">Favoritos</a>
+                <a href="favs.html">Favoritos</a>
             </div>
         </div>
     </div>
@@ -50,5 +48,7 @@
     <footer class="footer">
         <p>&copy; 2026 KFK. Todos los derechos reservados.</p>
     </footer>
+
+    <script src="loginscript.js"></script>
 </body>
 </html>
