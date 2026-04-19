@@ -1,0 +1,100 @@
+{
+    "album": [
+        {
+            "id": 1,
+            "title": "Barrio Fino",
+            "tracks": "23",
+            "date": "13 de julio de 2004",
+            "duration": "1 hora y 4 minutos",
+            "price": "24,99€"
+        },
+        {
+            "id": 2,
+            "title": "El Abayarde",
+            "tracks": "19",
+            "date": "1 de noviembre de 2002",
+            "duration": "57 minutos",
+            "price": "24,99€"
+        },
+        {
+            "id": 3,
+            "title": "Prestige",
+            "tracks": "17",
+            "date": "11 de septiembre de 2012",
+            "duration": "1 hora y 7 minutos",
+            "price": "24,99€"
+        },
+        {
+            "id": 4,
+            "title": "The Last Don",
+            "tracks": "18",
+            "date": "10 de junio de 2003",
+            "duration": "47 minutos",
+            "price": "24,99€"
+        },
+        {
+            "id": 5,
+            "title": "YHLQMDLG",
+            "tracks": "20",
+            "date": "29 de febrero de 2020",
+            "duration": "1 hora y 5 minutos",
+            "price": "24,99€"
+        },
+        {
+            "id": 6,
+            "title": "Odisea",
+            "tracks": "16",
+            "date": "24 de agosto de 2017",
+            "duration": "57 minutos",
+            "price": "24,99€"
+        },
+        {
+            "id": 7,
+            "title": "Sangre Nueva",
+            "tracks": "28",
+            "date": "21 de agosto de 2005",
+            "duration": "1 hora y 35 minutos",
+            "price": "24,99€"
+        },
+        {
+            "id": 8,
+            "title": "El Nuevo Sonido",
+            "tracks": "13",
+            "date": "20 de noviembre de 2025",
+            "duration": "30 minutos",
+            "price": "24,99€"
+        },
+        {
+            "id": 9,
+            "title": "La Formula",
+            "tracks": "21",
+            "date": "20 de agosto de 2012",
+            "duration": "1 hora y 17 minutos",
+            "price": "24,99€"
+        },
+        {
+            "id": 10,
+            "title": "Love And Sex",
+            "tracks": "16",
+            "date": "25 de agosto de 2014",
+            "duration": "59 minutos",
+            "price": "24,99€"
+        },
+        {
+            "id": 11,
+            "title": "El Fenomeno",
+            "tracks": "20",
+            "date": "9 de diciembre de 2008",
+            "duration": "1 hora y 17 minutos",
+            "price": "24,99€"
+        },
+        {
+            "id": 12,
+            "title": "Pa'l Mundo",
+            "tracks": "20",
+            "date": "8 de noviembre de 2005",
+            "duration": "1 hora y 7 minutos",
+            "price": "24,99€"
+        }
+    ]
+}
