@@ -129,6 +129,26 @@
             "duration": "1 hora y 7 minutos",
             "price": "24,99€",
             "categoria": ["Rap"]
+        },
+        {
+            "id": 14,
+            "title": "Vivir Para Contarlo",
+            "artist": "Violadores del Verso",
+            "tracks": "14",
+            "date": "8 de noviembre de 2005",
+            "duration": "1 hora y 7 minutos",
+            "price": "24,99€",
+            "categoria": ["Rap"]
+        },
+        {
+            "id": 15,
+            "title": "Curso de Poesia Basico",
+            "artist": "Rapsusklei, Shariff, Juaninacka",
+            "tracks": "10",
+            "date": "8 de noviembre de 2005",
+            "duration": "1 hora y 7 minutos",
+            "price": "24,99€",
+            "categoria": ["Rap"]
         }
 
     ]
