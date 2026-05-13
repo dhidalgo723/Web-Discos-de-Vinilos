@@ -1,1 +1,1 @@
-const usuario = sessionStorage.getItem('usuario');
+const usuario = sessionStorage.getItem('usuario', usuario);

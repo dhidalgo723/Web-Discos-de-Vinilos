@@ -2,22 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const loginForm = document.getElementById('loginForm');
     const passwordInput = document.getElementById('passwordInput');
     const validateButton = document.getElementById('validateButton');
-    
     const emailInput = document.getElementById('emailInput');
     const removeSesion = document.getElementById('removeSesion');
-
-    loginForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-
-        sessionStorage.setItem('usuario', emailInput.value.trim());
-    });
-
-    removeSesion.addEventListener('click', (e) => {
-        e.preventDefault();
-
-        sessionStorage.removeItem('usuario');
-        sessionStorage.clear();
-    });    
 
     function validatePassword(password) {
         let hasUpperCase = false;
@@ -31,7 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
             };
         }
 
-        // bucle para ver si la contraseña esta bien
         for (let i = 0; i < password.length; i++) {
             const char = password[i];
             
@@ -44,24 +29,22 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // si no tiene algo
         if (!hasUpperCase) {
             return {
                 valid: false,
-                message: 'Debe contener al menos una letra Mayuscula'
+                message: 'Debe contener al menos una letra Mayúscula'
             };
         } else if (!hasLowerCase) {
             return {
                 valid: false,
-                message: 'Debe contener al menos una letra minuscula'
+                message: 'Debe contener al menos una letra minúscula'
             };
         } else if (!hasNumber) {
             return {
                 valid: false,
-                message: 'Debe contener al menos un numero'
+                message: 'Debe contener al menos un número'
             };
         }
-
         return {
             valid: true,
             message: 'Contraseña válida'
@@ -69,21 +52,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     validateButton.addEventListener('click', (e) => {
-        // esto lo que hace es q cancela el comportamiento predeterminado del navegador
-        // basicamente evita que la pagina se recargue
         e.preventDefault();
         
+        // CORRECCIÓN: Obtener el VALOR del input, no el elemento
         const password = passwordInput.value.trim();
         
         if (!password) {
             alert('Ingresa una contraseña');
+            passwordInput.focus();
             return;
         }
 
         const validation = validatePassword(password);
         alert(validation.message);
         
-        // Efecto visual según validación
         if (validation.valid) {
             passwordInput.style.borderColor = '#00ff88';
             passwordInput.style.boxShadow = '0 0 20px rgba(0, 255, 136, 0.5)';
@@ -92,6 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
             passwordInput.style.animation = 'shake 0.5s';
             
             setTimeout(() => {
+                passwordInput.style.animation = '';
                 passwordInput.style.borderColor = 'rgba(155, 89, 182, 0.4)';
                 passwordInput.style.boxShadow = 'none';
             }, 500);
@@ -100,10 +83,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     loginForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        
-        // quita espacios en un string
+
+        const email = emailInput.value.trim();
         const password = passwordInput.value.trim();
-        // llama a la funcion
+
+        sessionStorage.setItem('usuario', email);
+        sessionStorage.setItem('password', password);
+        
         const passwordValidation = validatePassword(password);
 
         if (!passwordValidation.valid) {
@@ -118,14 +104,13 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 500);
             return;
         }
-        
+
+        alert("Has entrado como: " + sessionStorage.getItem('usuario', email));
         
         setTimeout(() => {
-            alert("Has entrado como, " + sessionStorage.getItem('usuario'));
             window.location.href = 'home.html';
         }, 1000);
     });
-
 
     passwordInput.addEventListener('input', () => {
         passwordInput.style.borderColor = 'rgba(155, 89, 182, 0.4)';

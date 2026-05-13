@@ -1,1 +1,0 @@
-hacer una funcion para cada uno de los productos que cuando le de click se cargue esa parte del codigo bien, por ejemplo para la que tenga el id tal, que se cargue la pagina de producto para ese producto
